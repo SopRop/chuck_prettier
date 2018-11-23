@@ -1,0 +1,110 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Oswald:200,,400,700" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <title>Chuck Norris API</title>
+    </head>
+    <body>
+
+        <div class="img-ck">
+            <img src="./img/norrisbot.png" alt="">
+        </div>
+
+        <div class="container has-text-centered">
+
+            <div class="flex">
+                <h2 class="title is-3">Did you know...</h2>
+            
+                <button type="button"
+                        class="button is-dark is-small what"
+                        id=""
+                        onclick="getRandomJoke()">What?
+                </button>
+            </div>
+
+            <i id="loader-joke" class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+            <p class="flex" id="joke"></p>
+
+            <div class="flex-right">
+
+                <button type="button"
+                class="button is-small"
+                id="paste"
+                onclick="pasteJoke()">
+                    <i class="fa fa-files-o" aria-hidden="true"></i>
+                </button>
+
+                <button type="button"
+                    class="button is-small"
+                    id="remember"
+                    onclick="addJokesList()">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="you container has-text-centered">
+            <h2 class="title is-3">Wanna feel powerful?</h2>
+        
+            <div class="">
+                <input placeholder="Enter your first name" id="inputFirstName" value="" type="text" class="input is-small">
+                <input placeholder="Enter your last name" id="inputLastName" value="" type="text" class="input is-small">
+                <button type="button"
+                        class="button is-dark is-small"
+                        id=""
+                        onclick="getNewNameInfo()">
+                            <i class="fa fa-diamond" aria-hidden="true"></i>
+                </button>
+            </div>
+    
+            <i id="loader-joke-name" class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
+            <p id="joke-name"></p>
+
+            <div class="flex-right">
+                <button type="button"
+                class="button is-small"
+                id="pasteName"
+                onclick="pasteJokeName()">
+                    <i class="fa fa-files-o" aria-hidden="true"></i>
+                </button>
+                <button type="button"
+                    class="button is-small"
+                    id="rememberName"
+                    onclick="addJokesNameList()">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="local container has-text-centered">
+
+            <h2 class="title is-4 title-joke flex">Saved jokes</h2>
+                
+            <div class="flex-right-far">
+                <button type="button"
+                    class="button is-small"
+                    id="delete"
+                    onclick="clearLocalStorage()">
+                        <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <ul id="local-storage">
+            </ul>
+
+        </div>
+            
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+        rel="stylesheet" integrity=""
+        crossorigin="anonymous">
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

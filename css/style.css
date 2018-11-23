@@ -1,0 +1,101 @@
+body {
+    margin-top: 50px !important;
+}
+
+.img-ck {
+    position: absolute;
+}
+
+.img-ck img {
+    max-height: 330px;
+}
+
+p {
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25%;
+    margin-top: 5px;
+}
+
+.flex-right-far {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20%;
+    margin-top: 5px;
+}
+
+
+.notification {
+    background-color: #efefef !important;
+}
+
+.what {
+    margin: 6px 0 0 5px;
+}
+
+#joke {
+    margin: 0 25%;
+}
+
+.you, .local {
+    margin-top: 50px !important;
+}
+
+#joke-name {
+    margin: 22px 25% 0 25%;
+}
+
+.message-body {
+    background-color: #fcfcfc !important;
+    font-style: italic;
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+.button {
+    font-family: 'Jura', sans-serif !important;
+    font-weight: 700;
+}
+
+.input {
+    width: 200px !important;
+}
+
+.title-joke {
+    border-bottom: 1px solid #a9a9a9;
+    padding-bottom: 3px;
+    margin: 0 42% !important;
+}
+
+#delete {
+    margin-bottom: 5px;
+}
+
+#paste, #pasteName {
+    margin-right: 5px;
+}
+
+ul {
+    margin: 0 20% !important;
+}
+
+#loader-joke-name {
+    margin-bottom: 20px;
+}
+
+#loader-joke-name {
+    margin-top: 20px;
+}
