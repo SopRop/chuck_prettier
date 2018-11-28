@@ -34,14 +34,14 @@
                 <button type="button"
                 class="button is-small"
                 id="paste"
-                onclick="pasteJoke()">
-                    <i class="fa fa-files-o" aria-hidden="true"></i>
+                onclick="pasteJoke('#joke')">
+                    <i id="copy-button-j" class="fa fa-files-o" aria-hidden="true"></i>
                 </button>
 
                 <button type="button"
                     class="button is-small"
                     id="remember"
-                    onclick="addJokesList()">
+                    onclick="addJokesList('#joke')">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                 </button>
 
@@ -69,14 +69,14 @@
             <div class="flex-right">
                 <button type="button"
                 class="button is-small"
-                id="pasteName"
-                onclick="pasteJokeName()">
-                    <i class="fa fa-files-o" aria-hidden="true"></i>
+                id="paste-name"
+                onclick="pasteJoke('#joke-name')">
+                    <i id="copy-button-jn" class="fa fa-files-o" aria-hidden="true"></i>
                 </button>
                 <button type="button"
                     class="button is-small"
-                    id="rememberName"
-                    onclick="addJokesNameList()">
+                    id="remember-name"
+                    onclick="addJokesList('#joke-name')">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>
                 </button>
             </div>

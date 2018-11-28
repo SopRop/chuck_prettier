@@ -1,10 +1,10 @@
-// for every reload of the page
+// RELOAD
 window.onload = function() {
-    // hide/display html what we need
+    // hide/display html we need
     document.querySelector('#remember').style.display = "none";
-    document.querySelector('#rememberName').style.display = "none";
+    document.querySelector('#remember-name').style.display = "none";
     document.querySelector('#paste').style.display = "none";
-    document.querySelector('#pasteName').style.display = "none";
+    document.querySelector('#paste-name').style.display = "none";
     document.querySelector('#loader-joke').style.display = "none";
     document.querySelector('#loader-joke-name').style.display = "none";
     if(Array.isArray(jokesArray) && jokesArray.length) {
@@ -12,9 +12,14 @@ window.onload = function() {
     } else {
         document.querySelector('#delete').style.display = "none";
     }
+    // loop through local storage array and display all info with the li maker
+    jokeData.forEach(item => {
+        liMaker(item);
+    });
   };
 
-// click on button "what"
+
+// CLICK 'what'
 function getRandomJoke() {
     document.querySelector('#loader-joke').style.display = "";
     // get data from api
@@ -35,7 +40,8 @@ function getRandomJoke() {
     })
 }
 
-// click on button "new name"
+
+// CLICK 'powerful'
 function getNewNameInfo() {
     document.querySelector('#loader-joke-name').style.display = "";
     // get input from user to use in next function
@@ -58,13 +64,14 @@ function getJokeDifferentName(firstName, lastName) {
         // hide/display html what we need
         if (data.type === "success") {
             document.querySelector('#loader-joke-name').style.display = "none";
-            document.querySelector('#rememberName').style.display = "";
-            document.querySelector('#pasteName').style.display = "";
+            document.querySelector('#remember-name').style.display = "";
+            document.querySelector('#paste-name').style.display = "";
         }
     })
 }
 
 
+// LOCAL STORAGE
 const jokesUL = document.querySelector('#local-storage');
 
 // check if local storage alreay exists
@@ -82,70 +89,68 @@ const liMaker = (text) => {
     jokesUL.appendChild(li);
 }
 
-// click on "save joke" button
-function addJokesList() {
+
+// CLICK 'save'
+function addJokesList(joke) {
     document.querySelector('#delete').style.display = "";
+    txt = document.querySelector(`${joke}`).innerHTML;
     // add title to the array
-    jokesArray.push(document.querySelector('#joke').innerHTML);
+    jokesArray.push(txt);
     // add every input in local storage
     localStorage.setItem('jokes', JSON.stringify(jokesArray));
     // create li (with joke from api data in parameter)
-    liMaker(document.querySelector('#joke').innerHTML);
+    liMaker(txt);
 }
 
-// click on "save joke" button (for name)
-function addJokesNameList() {
-    document.querySelector('#delete').style.display = "";
-    // add title to the array
-    jokesArray.push(document.querySelector('#joke-name').innerHTML);
-    // add every input in local storage
-    localStorage.setItem('jokes', JSON.stringify(jokesArray));
-    // create li (with joke from api data in parameter)
-    liMaker(document.querySelector('#joke-name').innerHTML);
-}
 
-function pasteJoke() {    
-  var text = document.querySelector('#joke');  
-  var range = document.createRange();  
-  range.selectNode(text);  
-  window.getSelection().addRange(range);  
-
-  try {  
-    // Now that we've selected the anchor text, execute the copy command  
-    var successful = document.execCommand('copy');  
-    var msg = successful ? 'successful' : 'unsuccessful';  
-    console.log('Copy email command was ' + msg);  
-  } catch(err) {  
-    console.log('Oops, unable to copy');  
-  }  
-  // Remove the selections 
-  window.getSelection().removeAllRanges();  
-};
-
-function pasteJokeName() {    
-    var text = document.querySelector('#joke-name');  
-    var range = document.createRange();  
+// CLICK 'paste'
+function pasteJoke(joke) {
+    let icon;
+    const text = document.querySelector(`${joke}`);
+    const range = document.createRange();
     range.selectNode(text);  
     window.getSelection().addRange(range);  
-  
-    try {  
-      // Now that we've selected the anchor text, execute the copy command  
-      var successful = document.execCommand('copy');  
-      var msg = successful ? 'successful' : 'unsuccessful';  
-      console.log('Copy email command was ' + msg);  
-    } catch(err) {  
-      console.log('Oops, unable to copy');  
-    }  
-    // Remove the selections 
-    window.getSelection().removeAllRanges();  
-  };
+    
+    try {
+    // Now that we've selected the anchor text, execute the copy command
+    if (text.id === 'joke') {
+        icon = document.querySelector('#copy-button-j');
+    } else if (text.id === 'joke-name') {
+        icon = document.querySelector('#copy-button-jn');
+    }
+    const successful = document.execCommand('copy');
+    let msg = successful ? 'successful' : 'unsuccessful';  
+    console.log('Copy command was ' + msg);
+    if (successful) {
+        icon.classList.remove("fa-files-o");
+        icon.classList.add("fa-check", "has-text-success", "fade");
+        setTimeout(function() {
+            icon.classList.remove("fa-check", "has-text-success", "fade");
+            icon.classList.add("fa-files-o");
+        }, 2000);
+    } else if (!successful) {
+        icon.classList.remove("fa-files-o");
+        icon.classList.add("fa-close", "has-text-danger", "fade");
+        setTimeout(function() {
+            icon.classList.remove("fa-close", "has-text-danger", "fade");
+            icon.classList.add("fa-files-o");
+        }, 2000);
+    }
+  } catch(err) {
+    console.log('Oops, unable to copy');
+    icon.classList.remove("fa-files-o");
+    icon.classList.add("fa-close", "has-text-danger", "fade");
+    setTimeout(function() {
+        icon.classList.remove("fa-close", "has-text-danger", "fade");
+        icon.classList.add("fa-files-o");
+    }, 2000);
+  }
+  // Remove the selections
+  window.getSelection().removeAllRanges();
+};
 
-// loop through local storage array and display all info with the li maker
-jokeData.forEach(item => {
-    liMaker(item);
-});
 
-// click on "clear" button
+// CLICK 'clear'
 function clearLocalStorage() {
     // clear local storage
     localStorage.clear();
@@ -154,5 +159,4 @@ function clearLocalStorage() {
     while (jokesUL.firstChild) {
         jokesUL.removeChild(jokesUL.firstChild);
     }
-
 }

@@ -1,5 +1,5 @@
 body {
-    margin-top: 50px !important;
+    margin-top: 30px !important;
 }
 
 .img-ck {
@@ -98,4 +98,14 @@ ul {
 
 #loader-joke-name {
     margin-top: 20px;
+}
+
+.fade {
+    animation: fadeInOut 2s linear forwards;
+}
+
+@keyframes fadeInOut {
+ 0% { opacity: 0.4; }
+ 50% { opacity: 1; } 
+ 100% { opacity: 0.4; } 
 }
