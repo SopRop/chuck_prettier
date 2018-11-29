@@ -4,102 +4,140 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Jura:400,700|Oswald:200,,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Oswald:200,400,700" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <title>Chuck Norris API</title>
+        <title>Chuck Norris Facts</title>
     </head>
-    <body>
+    <body class="black">
 
-        <div class="img-ck">
+        <!-- <div class="img-ck">
             <img src="./img/norrisbot.png" alt="">
-        </div>
+        </div> -->
 
-        <div class="container has-text-centered">
-
-            <div class="flex">
-                <h2 class="title is-3">Did you know...</h2>
-            
-                <button type="button"
-                        class="button is-dark is-small what"
-                        id=""
-                        onclick="getRandomJoke()">What?
-                </button>
-            </div>
-
-            <i id="loader-joke" class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
-            <p class="flex" id="joke"></p>
-
-            <div class="flex-right">
-
-                <button type="button"
-                class="button is-small"
-                id="paste"
-                onclick="pasteJoke('#joke')">
-                    <i id="copy-button-j" class="fa fa-files-o" aria-hidden="true"></i>
-                </button>
-
-                <button type="button"
-                    class="button is-small"
-                    id="remember"
-                    onclick="addJokesList('#joke')">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                </button>
-
-            </div>
+        <div class="left">
 
         </div>
 
-        <div class="you container has-text-centered">
-            <h2 class="title is-3">Wanna feel powerful?</h2>
-        
-            <div class="">
-                <input placeholder="Enter your first name" id="inputFirstName" value="" type="text" class="input is-small">
-                <input placeholder="Enter your last name" id="inputLastName" value="" type="text" class="input is-small">
-                <button type="button"
-                        class="button is-dark is-small"
-                        id=""
-                        onclick="getNewNameInfo()">
-                            <i class="fa fa-diamond" aria-hidden="true"></i>
-                </button>
+        <div class="center">
+
+            <div id="site-title" class="site-title black">
+                <p class="">Chuck Norris</p>
+                <p class="little-title">Facts</p>
+                <p id="day-mode"></p>
             </div>
+
+            <div class="border">
+                <div class="">
+                    <div class="flex">
+                        <h2 class="title is-3">Did you know...</h2>
+                    
+                        <button type="button"
+                                class="button is-dark is-small what"
+                                id=""
+                                onclick="getRandomJoke()">What?
+                        </button>
+                    </div>
     
-            <i id="loader-joke-name" class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i>
-            <p id="joke-name"></p>
-
-            <div class="flex-right">
-                <button type="button"
-                class="button is-small"
-                id="paste-name"
-                onclick="pasteJoke('#joke-name')">
-                    <i id="copy-button-jn" class="fa fa-files-o" aria-hidden="true"></i>
-                </button>
-                <button type="button"
-                    class="button is-small"
-                    id="remember-name"
-                    onclick="addJokesList('#joke-name')">
-                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="local container has-text-centered">
-
-            <h2 class="title is-4 title-joke flex">Saved jokes</h2>
+                    <div class="flex">
+                        <i id="loader-joke" class="fa fa-spinner fa-pulse fa-3x fa-fw has-text-black" aria-hidden="true"></i>
+                    </div>
+                    
+                    <div class="flex">
+                        <p id="joke"></p>
+                    </div>
+        
+                    <div class="flex-right-far">
+        
+                        <button type="button"
+                        class="button is-small"
+                        id="paste"
+                        onclick="pasteJoke('#joke')">
+                            <i id="copy-button-j" class="fa fa-files-o" aria-hidden="true"></i>
+                        </button>
+        
+                        <button type="button"
+                            class="button is-small"
+                            id="remember"
+                            onclick="addJokesList('#joke')">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </button>
+        
+                    </div>
+                </div>
+        
+                <div class="you">
+                    <h2 class="title is-3 flex">Wanna feel powerful?</h2>
                 
-            <div class="flex-right-far">
-                <button type="button"
-                    class="button is-small"
-                    id="delete"
-                    onclick="clearLocalStorage()">
-                        <i class="fa fa-close" aria-hidden="true"></i>
-                </button>
+                    <div class="flex">
+                        <input placeholder="Enter your first name" id="input-first-name" value="" type="text" class="input is-small">
+                        <input placeholder="Enter your last name" id="input-last-name" value="" type="text" class="input is-small">
+                        <button type="button"
+                                class="button is-dark is-small"
+                                id=""
+                                onclick="getNewNameInfo()">
+                                    <i class="fa fa-diamond" aria-hidden="true"></i>
+                        </button>
+                    </div>
+            
+                    <div class="flex">
+                        <i id="loader-joke-name" class="fa fa-spinner fa-pulse fa-3x fa-fw has-text-black" aria-hidden="true"></i>
+                    </div>
+    
+                    <div class="flex">
+                        <p id="joke-name"></p>
+                    </div>
+        
+                    <div class="flex-right-far">
+                        <button type="button"
+                        class="button is-small"
+                        id="paste-name"
+                        onclick="pasteJoke('#joke-name')">
+                            <i id="copy-button-jn" class="fa fa-files-o" aria-hidden="true"></i>
+                        </button>
+                        <button type="button"
+                            class="button is-small"
+                            id="remember-name"
+                            onclick="addJokesList('#joke-name')">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+        
+        
+                <div class="local">
+        
+                    <h2 class="title is-4 title-joke flex">Saved jokes</h2>
+                        
+                    <div class="flex-right-far">
+                        <button type="button"
+                            class="button is-small"
+                            id="delete"
+                            onclick="clearLocalStorage()">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                        </button>
+                    </div>
+    
+                    <div class="flex">
+                        <ul id="local-storage">
+                        </ul>
+                    </div>
+        
+                </div>
             </div>
+        </div>
 
-            <ul id="local-storage">
-            </ul>
+
+        <div class="right">
+
+            <button type="button"
+                    class="button is-small"
+                    id="mood"
+                    onclick="changeMood()">
+                        <i id="mood-icon" class="fa fa-circle-thin" aria-hidden="true"></i>
+            </button>
 
         </div>
+
             
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"

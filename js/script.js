@@ -7,6 +7,7 @@ window.onload = function() {
     document.querySelector('#paste-name').style.display = "none";
     document.querySelector('#loader-joke').style.display = "none";
     document.querySelector('#loader-joke-name').style.display = "none";
+
     if(Array.isArray(jokesArray) && jokesArray.length) {
         document.querySelector('#delete').style.display = "";
     } else {
@@ -22,6 +23,7 @@ window.onload = function() {
 // CLICK 'what'
 function getRandomJoke() {
     document.querySelector('#loader-joke').style.display = "";
+    console.log("why?");
     // get data from api
     fetch(`http://api.icndb.com/jokes/random`)
     .then(function(response) {
@@ -29,9 +31,9 @@ function getRandomJoke() {
     })
     .then(function(data) {
         // display data from api in html
-        document.querySelector('#joke').classList.add("message-body");
         document.querySelector('#joke').innerHTML = data.value.joke;
-        // hide/display html what we need
+        document.querySelector('#joke').classList.add("message-body", "blockquote");
+        // hide/display html we need
         if (data.type === "success") {
             document.querySelector('#remember').style.display = "";
             document.querySelector('#paste').style.display = "";
@@ -45,8 +47,8 @@ function getRandomJoke() {
 function getNewNameInfo() {
     document.querySelector('#loader-joke-name').style.display = "";
     // get input from user to use in next function
-    let firstName = document.querySelector('#inputFirstName').value;
-    let lastName = document.querySelector('#inputLastName').value;
+    let firstName = document.querySelector('#input-first-name').value;
+    let lastName = document.querySelector('#input-last-name').value;
     getJokeDifferentName(firstName, lastName);
 }
 
@@ -60,8 +62,8 @@ function getJokeDifferentName(firstName, lastName) {
     .then(function(data) {
         // display data from api in html
         document.querySelector('#joke-name').innerHTML = data.value.joke;
-        document.querySelector('#joke-name').classList.add("message-body");
-        // hide/display html what we need
+        document.querySelector('#joke-name').classList.add("message-body", "blockquote");
+        // hide/display html we need
         if (data.type === "success") {
             document.querySelector('#loader-joke-name').style.display = "none";
             document.querySelector('#remember-name').style.display = "";
@@ -158,5 +160,40 @@ function clearLocalStorage() {
     // clear every child from the ul
     while (jokesUL.firstChild) {
         jokesUL.removeChild(jokesUL.firstChild);
+    }
+}
+
+
+// CLICK 'toggle'
+const body = document.querySelector('body').classList;
+const title = document.querySelector('#site-title').classList;
+const mood = document.querySelector('#mood-icon').classList;
+const punchlines = ['Chuck Norris doesn\'t use day mode...<br>3, 2, 1...', 'Chuck Norris has night vision...<br>3, 2, 1...',
+                    'What are you doing?!<br>3, 2, 1...'];
+const punch = document.querySelector('#day-mode');
+
+function nightMode() {
+    body.remove('white');
+    body.add('black');
+    title.remove('white');
+    title.add('black');
+    mood.remove('fa-moon-o')
+    mood.add('fa-circle-thin')
+}
+
+function changeMood() {
+    if (body.value === 'black') {
+        body.remove('black');
+        body.add('white');
+        title.remove('black');
+        title.add('white');
+        mood.remove('fa-circle-thin')
+        mood.add('fa-moon-o')
+        punch.innerHTML = punchlines[Math.floor(Math.random() * punchlines.length)];
+        setTimeout(function() {
+            nightMode();
+        }, 5000);
+    } else {
+        nightMode();
     }
 }
