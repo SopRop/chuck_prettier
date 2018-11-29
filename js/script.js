@@ -23,7 +23,6 @@ window.onload = function() {
 // CLICK 'what'
 function getRandomJoke() {
     document.querySelector('#loader-joke').style.display = "";
-    console.log("why?");
     // get data from api
     fetch(`http://api.icndb.com/jokes/random`)
     .then(function(response) {
