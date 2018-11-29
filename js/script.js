@@ -24,7 +24,7 @@ window.onload = function() {
 function getRandomJoke() {
     document.querySelector('#loader-joke').style.display = "";
     // get data from api
-    fetch(`http://api.icndb.com/jokes/random`)
+    fetch(`https://api.icndb.com/jokes/random`)
     .then(function(response) {
         return response.json();
     })
@@ -54,7 +54,7 @@ function getNewNameInfo() {
 // fetch new joke with input first name and last name
 function getJokeDifferentName(firstName, lastName) {
     // get data from api
-    fetch(`http://api.icndb.com/jokes/random?firstName=${firstName}&amp&lastName=${lastName}`)
+    fetch(`https://api.icndb.com/jokes/random?firstName=${firstName}&amp&lastName=${lastName}`)
     .then(function(response) {
         return response.json();
     })
