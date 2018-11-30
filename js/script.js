@@ -107,19 +107,20 @@ function addJokesList(joke) {
 // CLICK 'paste'
 function pasteJoke(joke) {
     let icon;
+    let successful;
     const text = document.querySelector(`${joke}`);
     const range = document.createRange();
     range.selectNode(text);  
-    window.getSelection().addRange(range);  
-    
+    window.getSelection().addRange(range);
     try {
     // Now that we've selected the anchor text, execute the copy command
     if (text.id === 'joke') {
         icon = document.querySelector('#copy-button-j');
+        successful = document.execCommand('copy');
     } else if (text.id === 'joke-name') {
         icon = document.querySelector('#copy-button-jn');
+        successful = document.execCommand('copy');
     }
-    const successful = document.execCommand('copy');
     let msg = successful ? 'successful' : 'unsuccessful';  
     console.log('Copy command was ' + msg);
     if (successful) {
@@ -168,7 +169,8 @@ const body = document.querySelector('body').classList;
 const title = document.querySelector('#site-title').classList;
 const mood = document.querySelector('#mood-icon').classList;
 const punchlines = ['Chuck Norris doesn\'t use day mode...<br>3, 2, 1...', 'Chuck Norris has night vision...<br>3, 2, 1...',
-                    'What are you doing?!<br>3, 2, 1...'];
+                    'What are you doing?!<br>3, 2, 1...', 'Are you scared of the dark?<br>3, 2, 1...',
+                    'Do you need your teddy bear?<br>3, 2, 1...'];
 const punch = document.querySelector('#day-mode');
 
 function nightMode() {

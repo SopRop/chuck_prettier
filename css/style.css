@@ -8,7 +8,6 @@
 }
 
 body {
-    padding-bottom: 40px !important;
     display: flex;
 }
 
@@ -40,7 +39,7 @@ body {
     border: 10px solid black;
     border-radius: 20px;
     background: white;
-    padding: 50px 0;
+    padding: 40px 0;
 }
 
 .site-title {
@@ -75,12 +74,12 @@ body {
 
 .message-body {
     width: 75%;
-    background-color: #fcfcfc !important;
+    background-color: #F8F8F8 !important;
     font-style: italic;
 }
 
 .notification {
-    background-color: #efefef !important;
+    background-color: #E5E5E5 !important;
     margin-bottom: 15px !important;
     color: black;
 }
@@ -91,6 +90,7 @@ body {
 
 #joke, #joke-name {
     text-align: center;
+    color: black;
 }
 
 #joke-name {
@@ -105,12 +105,14 @@ body {
     font-family: FontAwesome;
     content: '\f10d';
     margin-right: 10px;
+    color: #6F6F6F;
 }
 
 .blockquote::after {
     font-family: FontAwesome;
     content: '\f10e';
     margin-left: 10px;
+    color: #6F6F6F;
 }
 
 #paste, #paste-name {
@@ -146,10 +148,3 @@ body {
 #mood {
     margin: 5px;
 }
-/* .img-ck {
-    position: absolute;
-}
-
-.img-ck img {
-    max-height: 330px;
-} */
