@@ -155,3 +155,43 @@ body {
 #mood {
     margin: 5px;
 }
+
+@media screen and (max-width: 1450px) {
+    .left, .right {
+        display: none;
+    }
+
+    .center {
+        width: 100% !important;
+    }
+
+    .message-body, #local-storage {
+        width: 95%;
+    }
+
+    .site-title {
+        font-size: 200% !important;
+    }
+
+    .title-joke {
+        margin: 0 30% !important;
+    }
+
+    .flex-right-far {
+        margin: 5px 3% 5px 0;
+    }
+
+    .name-responsive {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .name-responsive input {
+        width: 80% !important;
+        margin-bottom: 5px;
+    }
+
+    #paste, #paste-name {
+        display: none;
+    }
+}
