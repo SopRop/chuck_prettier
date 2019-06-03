@@ -21,7 +21,7 @@
         <div class="center">
 
             <div id="site-title" class="site-title black">
-                <p class="">Chuck Norris</p>
+                <p class="">Chuck N<span><img class="img-chuck" src="./img/chuck-norris-sticker.png" alt=""></span>rris</p>
                 <p class="little-title">Facts</p>
                 <p id="day-mode"></p>
             </div>
@@ -31,10 +31,12 @@
                     <div class="flex">
                         <h2 class="title is-3">Did you know...</h2>
                     
-                        <button type="button"
-                                class="button is-dark is-small what"
-                                id=""
-                                onclick="getRandomJoke()">What?
+                        <button
+                            type="button"
+                            class="button is-warning is-small what"
+                            id=""
+                            onclick="getRandomJoke()"
+                        >What?
                         </button>
                     </div>
     
@@ -48,18 +50,24 @@
         
                     <div class="flex-right-far">
         
-                        <button type="button"
-                        class="button is-small"
-                        id="paste"
-                        onclick="pasteJoke('#joke')">
+                        <button
+                            title="Copy joke"
+                            type="button"
+                            class="button is-small"
+                            id="paste"
+                            onclick="pasteJoke('#joke')"
+                        >
                             <i id="copy-button-j" class="fa fa-files-o" aria-hidden="true"></i>
                         </button>
         
-                        <button type="button"
+                        <button
+                            title="Save joke at the bottom of the page"
+                            type="button"
                             class="button is-small"
                             id="remember"
-                            onclick="addJokesList('#joke')">
-                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            onclick="addJokesList('#joke')"
+                        >
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         </button>
         
                     </div>
@@ -68,14 +76,16 @@
                 <div class="you">
                     <h2 class="title is-3 flex">Wanna feel powerful?</h2>
                 
-                    <div class="flex name-responsive">
+                    <div class="flex name-inputs name-responsive">
                         <input placeholder="Enter your first name" id="input-first-name" value="" type="text" class="input is-small">
                         <input placeholder="Enter your last name" id="input-last-name" value="" type="text" class="input is-small">
-                        <button type="button"
-                                class="button is-dark is-small"
-                                id=""
-                                onclick="getNewNameInfo()">
-                                    <i class="fa fa-diamond" aria-hidden="true"></i>
+                        <button
+                            type="button"
+                            class="button is-warning is-small"
+                            id=""
+                            onclick="getNewNameInfo()"
+                        >
+                            <i class="fa fa-diamond" aria-hidden="true"></i>
                         </button>
                     </div>
             
@@ -88,17 +98,23 @@
                     </div>
         
                     <div class="flex-right-far">
-                        <button type="button"
-                        class="button is-small"
-                        id="paste-name"
-                        onclick="pasteJoke('#joke-name')">
+                        <button
+                            title="Copy joke"
+                            type="button"
+                            class="button is-small"
+                            id="paste-name"
+                            onclick="pasteJoke('#joke-name')"
+                        >
                             <i id="copy-button-jn" class="fa fa-files-o" aria-hidden="true"></i>
                         </button>
-                        <button type="button"
+                        <button
+                            title="Save joke at the bottom of the page"
+                            type="button"
                             class="button is-small"
                             id="remember-name"
-                            onclick="addJokesList('#joke-name')">
-                                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                            onclick="addJokesList('#joke-name')"
+                        >
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -109,11 +125,14 @@
                     <h2 class="title is-4 title-joke flex">Saved jokes</h2>
                         
                     <div class="flex-right-far">
-                        <button type="button"
+                        <button
+                            title="Erase all the jokes"
+                            type="button"
                             class="button is-small"
                             id="delete"
-                            onclick="clearLocalStorage()">
-                                <i class="fa fa-close" aria-hidden="true"></i>
+                            onclick="clearLocalStorage()"
+                        >
+                            <i class="fa fa-close" aria-hidden="true"></i>
                         </button>
                     </div>
     
@@ -128,11 +147,13 @@
 
 
         <div class="right">
-            <button type="button"
-                    class="button is-small"
-                    id="mood"
-                    onclick="changeMood()">
-                        <i id="mood-icon" class="fa fa-circle-thin" aria-hidden="true"></i>
+            <button
+                type="button"
+                class="button is-small"
+                id="mood"
+                onclick="changeMood()"
+            >
+                <i id="mood-icon" class="fa fa-circle-thin" aria-hidden="true"></i>
             </button>
         </div>
 

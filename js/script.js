@@ -23,6 +23,10 @@ window.onload = function() {
 // CLICK 'what'
 function getRandomJoke() {
     document.querySelector('#loader-joke').style.display = "";
+    document.querySelector('#remember').style.display = "none";
+    document.querySelector('#paste').style.display = "none";
+    document.querySelector('#joke').innerHTML = "";
+    document.querySelector('#joke').classList.remove("message-body", "blockquote");
     // get data from api
     fetch(`https://api.icndb.com/jokes/random`)
     .then(function(response) {
@@ -30,13 +34,17 @@ function getRandomJoke() {
     })
     .then(function(data) {
         // display data from api in html
-        document.querySelector('#joke').innerHTML = data.value.joke;
-        document.querySelector('#joke').classList.add("message-body", "blockquote");
         // hide/display html we need
         if (data.type === "success") {
-            document.querySelector('#remember').style.display = "";
-            document.querySelector('#paste').style.display = "";
-            document.querySelector('#loader-joke').style.display = "none";
+            setTimeout(function() {
+                document.querySelector('#loader-joke').style.display = "none";
+            }, 350);
+            setTimeout(function() {
+                document.querySelector('#joke').innerHTML = data.value.joke;
+                document.querySelector('#joke').classList.add("message-body", "blockquote");
+                document.querySelector('#remember').style.display = "";
+                document.querySelector('#paste').style.display = "";
+            }, 400);
         }
     })
 }
@@ -45,6 +53,10 @@ function getRandomJoke() {
 // CLICK 'powerful'
 function getNewNameInfo() {
     document.querySelector('#loader-joke-name').style.display = "";
+    document.querySelector('#remember-name').style.display = "none";
+    document.querySelector('#paste-name').style.display = "none";
+    document.querySelector('#joke-name').innerHTML = "";
+    document.querySelector('#joke-name').classList.remove("message-body", "blockquote");
     // get input from user to use in next function
     let firstName = document.querySelector('#input-first-name').value;
     let lastName = document.querySelector('#input-last-name').value;
@@ -60,13 +72,17 @@ function getJokeDifferentName(firstName, lastName) {
     })
     .then(function(data) {
         // display data from api in html
-        document.querySelector('#joke-name').innerHTML = data.value.joke;
-        document.querySelector('#joke-name').classList.add("message-body", "blockquote");
         // hide/display html we need
         if (data.type === "success") {
-            document.querySelector('#loader-joke-name').style.display = "none";
-            document.querySelector('#remember-name').style.display = "";
-            document.querySelector('#paste-name').style.display = "";
+            setTimeout(function() {
+                document.querySelector('#loader-joke-name').style.display = "none";
+            }, 350);
+            setTimeout(function() {
+                document.querySelector('#joke-name').innerHTML = data.value.joke;
+                document.querySelector('#joke-name').classList.add("message-body", "blockquote");
+                document.querySelector('#remember-name').style.display = "";
+                document.querySelector('#paste-name').style.display = "";
+            }, 400);
         }
     })
 }

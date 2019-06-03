@@ -57,6 +57,11 @@ body {
     font-size: 60px;
 }
 
+.img-chuck {
+    width: 38px;
+    margin-bottom: -3px;
+}
+
 .little-title {
     font-size: 50px;
     margin-top: -25px;
@@ -92,7 +97,7 @@ body {
 }
 
 .what {
-    margin: 5px 0 0 5px;
+    margin: 6px 0 0 5px;
 }
 
 #joke, #joke-name {
@@ -100,12 +105,8 @@ body {
     color: black;
 }
 
-#joke-name {
-    margin-top: 22px;
-}
-
 #loader-joke-name {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .blockquote::before {
@@ -124,6 +125,10 @@ body {
 
 #paste, #paste-name {
     margin-right: 2px;
+}
+
+.name-inputs {
+    margin-bottom: 20px;
 }
 
 .input {
